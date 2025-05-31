@@ -1,7 +1,29 @@
 <%= render "shared/header" %>
-<div class="bg-lime-50">
-    <h2>貴方の生まれた日付を教えてください<br>
-    貴方のパートナーであるparty_parrotを伝えましょう。
-    </h2>
+<% if flash[:alert] %>
+  <div class="bg-red-100 text-red-700 p-2 mb-4 rounded">
+    <%= flash[:alert] %>
+  </div>
+<% end %>
+<div class="bg-lime-50 p-8 min-h-screen flex flex-col items-center">
+  <h2 class="mb-8 text-2xl font-bold text-emerald-700 text-center">
+    誕生日を教えてください<br>
+    <span class="text-base font-normal text-gray-600">貴方のパートナーであるparty_parrotを伝えましょう。</span>
+  </h2>
+  <div class="bg-white rounded-lg shadow-md p-8 w-full max-w-md">
+    <%= form_with url: diagnosis_result_path, method: :post, local: true do |f| %>
+      <div class="mb-6">
+        <%= f.label :birthday, "誕生日", class: "block mb-2 font-semibold text-gray-700" %>
+        <div class="flex gap-2">
+          <%= f.date_select :birthday, 
+                start_year: 1920,
+                end_year: Date.today.year,
+                ascending: true,
+                default: Date.new(2000, 1, 1),
+                class: "border rounded p-5" %>
+        </div>
+      </div>
+      <%= f.submit "診断する", class: "w-full bg-emerald-600 text-white px-4 py-2 rounded font-bold hover:bg-emerald-700 transition" %>
+    <% end %>
+  </div>
 </div>
 <%= render "shared/footer" %>
