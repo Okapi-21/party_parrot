@@ -37,7 +37,7 @@ class DiagnosesController < ApplicationController
                 @image = "party_parrots/parrot_04.png"
             when 4
                 @headline = "あなたは優等生パロットタイプ!!"
-                @description = "いいね"
+                @description = "あなたは「優等生パロットタイプ」のようです。\n優等生パロットは学ぶことが好きなので、いつも本を持ち歩いています。また、パロットと関係を築くときには、勉強中に定期的にお菓子やコーヒーなどの差し入れをしてあげると好感度が上げやすいです。パロット本人は気づいていないですが、王家の血を継いでいます。"
                 @image = "party_parrots/parrot_05.png"
             when 5
                 @headline = "あなたはDJパロットタイプ!!"

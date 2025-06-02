@@ -9,19 +9,21 @@
     }
 
     20% {
-        transform: translateX(-2px);
+        transform: translateX(-7px);
+        /* ← ここを大きく */
     }
 
     40% {
-        transform: translateX(2px);
+        transform: translateX(7px);
+        /* ← ここも大きく */
     }
 
     60% {
-        transform: translateX(-2px);
+        transform: translateX(-7px);
     }
 
     80% {
-        transform: translateX(2px);
+        transform: translateX(7px);
     }
 
     100% {
