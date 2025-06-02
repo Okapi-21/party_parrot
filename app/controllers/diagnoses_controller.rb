@@ -1,14 +1,13 @@
 class DiagnosesController < ApplicationController
     def index
-
     end
 
     def new
-
     end
 
     def result
-        # date_params = params[:birthday] は使わず、直接paramsから取得
+        sleep 1.5
+
         year  = params["[birthday(1i)]"]
         month = params["[birthday(2i)]"]
         day   = params["[birthday(3i)]"]
@@ -16,7 +15,7 @@ class DiagnosesController < ApplicationController
         if year.present? && month.present? && day.present?
             birthday_str = "#{year}#{month.rjust(2, '0')}#{day.rjust(2, '0')}"
             sum = birthday_str.chars.map(&:to_i).sum
-            @type = sum % 12 
+            @type = sum % 12
             # ここで診断結果を@resultなどにセットしてビューで使う
             case @type
             when 0
@@ -71,11 +70,9 @@ class DiagnosesController < ApplicationController
         render :result
         else
             flash.now[:danger] = "誕生日を入力してください"
-            render :new , status: :unprocessable_entity
+            render :new, status: :unprocessable_entity
         end
     end
 
     private
-    
-    
 end

@@ -15,6 +15,4 @@ Rails.application.routes.draw do
   post "diagnoses/result", to: "diagnoses#result", as: :diagnosis_result
 
   resources :diagnoses, only: %i[index new]
-
-
 end
