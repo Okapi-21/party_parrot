@@ -8,7 +8,8 @@ class DiagnosesController < ApplicationController
     end
 
     def result
-        # date_params = params[:birthday] は使わず、直接paramsから取得
+        sleep 1.5
+
         year  = params["[birthday(1i)]"]
         month = params["[birthday(2i)]"]
         day   = params["[birthday(3i)]"]
