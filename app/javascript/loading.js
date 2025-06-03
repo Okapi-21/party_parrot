@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", function () {
         "/assets/loading_gifs/mailparrot.gif",
         "/assets/loading_gifs/dabparrot.gif",
         "/assets/loading_gifs/reactparrot.gif",
-        "/assets/loading_gifs/angelparrot.gif"
     ];
     const loadingGif = document.getElementById("loading-gif");
     if (loadingGif) {
