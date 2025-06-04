@@ -1,18 +1,12 @@
 // app/javascript/loading.js
 document.addEventListener("DOMContentLoaded", function () {
-  const gifs = [
-    "/loading_gifs/reversecongaparrot.gif",
-    "/loading_gifs/shuffleparrot.gif",
-    "/loading_gifs/beltparrot.gif",
-    "/loading_gifs/dealwithitnowparrot.gif",
-    "/loading_gifs/christmasparrot.gif",
-    "/loading_gifs/sleepingparrot.gif",
-    "/loading_gifs/mailparrot.gif",
-    "/loading_gifs/dabparrot.gif",
-    "/loading_gifs/reactparrot.gif"
-  ];
+  const container = document.getElementById("loading-gif-container");
+  let gifs = [];
+  if (container) {
+    gifs = JSON.parse(container.dataset.gifs);
+  }
   const loadingGif = document.getElementById("loading-gif");
-  if (loadingGif) {
+  if (loadingGif && gifs.length > 0) {
     const randomGif = gifs[Math.floor(Math.random() * gifs.length)];
     loadingGif.src = randomGif;
   }
