@@ -12,6 +12,13 @@ class DiagnosesController < ApplicationController
         month = params["[birthday(2i)]"]
         day   = params["[birthday(3i)]"]
 
+        if year == "1" && month == "1" && day =="1"
+            @headline = "あなたは始祖のパロットタイプ!!"
+            @description = "あなたのパートナーは「始祖のパロット」のようです。\nパロット界の創造主であり、絶対的な存在として君臨しているパロット。世界を8610日で創り、生命を爆誕させた。王家の血を継ぐパロットは始祖のパロットの遠い子孫であり、現在は地上に30人しかいない。"
+            @image = "party_parrots/parrot_13.png"
+            render :result and return
+        end
+
         if year.present? && month.present? && day.present?
             birthday_str = "#{year}#{month.rjust(2, '0')}#{day.rjust(2, '0')}"
             sum = birthday_str.chars.map(&:to_i).sum
@@ -24,7 +31,7 @@ class DiagnosesController < ApplicationController
                 @image = "party_parrots/parrot_01.png"
             when 1
                 @headline = "あなたはパイレーツパロットタイプ!!"
-                @description = "あなたのパートナーは「パイレーツパロット」のようです。\n大陸から離れた孤島で生まれ、偶然島を立ち寄った大海賊との出会いをきっかけに海賊になったパロット。確かな人望と実力で、今では船員をまとめる存在になっています。好きなものは炒飯。あと、本人に自覚はないですが寿司職人の才能を持っています。"
+                @description = "あなたのパートナーは「パイレーツパロット」のようです。\n大陸から離れた孤島で生まれ、偶然島を立ち寄った大海賊との出会いをきっかけに海賊になったパロット。確かな実力と人望で、今では船員をまとめる存在になっています。好きなものは炒飯。あと、本人に自覚はないですが寿司職人の才能を持っています。"
                 @image = "party_parrots/parrot_02.png"
             when 2
                 @headline = "あなたは博士パロットタイプ!!"
@@ -36,7 +43,7 @@ class DiagnosesController < ApplicationController
                 @image = "party_parrots/parrot_04.png"
             when 4
                 @headline = "あなたは優等生パロットタイプ!!"
-                @description = "あなたのパートナーは「優等生パロット」のようです。\n優等生パロットは学ぶことが好きなので、いつも本を持ち歩いています。また、パロットと関係を築くときには、勉強中にお菓子やコーヒーなどの差し入れをしてあげると好感度を上げやすいです。あと、パロット本人は気づいていないですが王家の血を継いでいます。"
+                @description = "あなたのパートナーは「優等生パロット」のようです。\n学校では学級委員長とかを率先してやるタイプのパロット。基本的に学ぶことが好きなので、いつも本を持ち歩いています。勉強中にお菓子やコーヒーなどの差し入れをしてあげると好感度を上げやすいです。あと、パロット本人は気づいていないですが王家の血を継いでいます。"
                 @image = "party_parrots/parrot_05.png"
             when 5
                 @headline = "あなたはDJパロットタイプ!!"
@@ -48,11 +55,11 @@ class DiagnosesController < ApplicationController
                 @image = "party_parrots/parrot_07.png"
             when 7
                 @headline = "あなたは魔術師パロットタイプ!!"
-                @description = "あなたのパートナーは「魔術師パロット」のようです。\n"
+                @description = "あなたのパートナーは「魔術師パロット」のようです。\n現代においても「魔術」の存在を信じており、その証明を行おうとしているパロット。平日は公務員として役所勤めをしているので土日限定で魔術師パロットになります。一定数のファンが存在しており、魔術師パロットとして活動しているときは日常を忘れることができるので本人としては現状で満足しているらしいです。オカルト系の話をすると好感度が上がります。あと、本人は自覚していないですが王家の血を継ぐ存在です。"
                 @image = "party_parrots/parrot_08.png"
             when 8
                 @headline = "あなたは英国紳士パロットタイプ!!"
-                @description = "あなたのパートナーは「英国紳士パロット」のようです。\n英国紳士としての誇りを持っており、礼儀正しさのなかにさりげなくユーモアをしのばせることのできるインテリ派パロット。気高い雰囲気を纏っているますが、打ち解けるとかなり気さくに話してくれます。歴史や紅茶の話をすると好感度が上がります。あと、本人は自覚がないですがコーチングの才能があります。"
+                @description = "あなたのパートナーは「英国紳士パロット」のようです。\n英国紳士としての誇りを持っており、礼儀正しさのなかにさりげなくユーモアをしのばせることのできるインテリ派パロット。気高い雰囲気を纏っていますが、打ち解けるとかなり気さくに話してくれます。歴史や紅茶の話をすると好感度が上がります。あと、本人は自覚がないですがコーチングの才能があります。"
                 @image = "party_parrots/parrot_09.png"
             when 9
                 @headline = "あなたは百戦錬磨の王者パロットタイプ!!"
@@ -64,7 +71,7 @@ class DiagnosesController < ApplicationController
                 @image = "party_parrots/parrot_11.png"
             when 11
                 @headline = "あなたはスポーツ少年パロットタイプ!!"
-                @description = "あなたのパートナーは「スポーツ少年パロット」のようです。\n"
+                @description = "あなたのパートナーは「スポーツ青年パロット」のようです。\n現在高校2年生でスポーツに励む青年パロット。性格は少々頑固な部分もあるが、誠実で実直な面も持ち合わせています。また、帰宅すると一番にVtuberの配信をチェックする日課を持ち、Vtuber関連の話をすると好感度が上がります。あと、本人は自覚がないですが歌舞伎の才能があります。"
                 @image = "party_parrots/parrot_12.png"
             end
         render :result

@@ -15,11 +15,12 @@
         <%= f.label :birthday, "誕生日", class: "block mb-2 font-semibold text-gray-700" %>
         <div class="flex gap-2">
           <%= f.date_select :birthday, 
-                start_year: 1920,
+                start_year: 1,
                 end_year: Date.today.year,
                 ascending: true,
                 default: Date.new(2000, 1, 1),
-                class: "border rounded p-5" %>
+                class: "border rounded p-5",
+                max_years_allowed: 3000 %>
         </div>
       </div>
       <%= f.submit "診断する", class: "w-full bg-emerald-600 text-white px-4 py-2 rounded font-bold hover:bg-emerald-700 transition" %>
