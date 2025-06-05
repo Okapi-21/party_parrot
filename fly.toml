@@ -1,4 +1,4 @@
-# fly.toml app configuration file generated for party-parrot on 2025-06-04T17:06:21+09:00
+# fly.toml app configuration file generated for party-parrot on 2025-06-05T14:33:19+09:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
@@ -17,7 +17,45 @@ console_command = '/rails/bin/rails console'
   min_machines_running = 0
   processes = ['app']
 
+  [[http_service.checks]]
+    interval = '10s'
+    timeout = '2s'
+    grace_period = '5s'
+    method = 'GET'
+    path = "/up\nUsage:\n  rails new APP_PATH [options]\n\nOptions:\n                 [--skip-namespace]                                            # Skip namespace (affects only isolated engines)\n                                                                               # Default: false\n                 [--skip-collision-check]                                      # Skip collision check\n                                                                               # Default: false\n  -r,            [--ruby=PATH]                                                 # Path to the Ruby binary of your choice\n                                                                               # Default: /Users/kakuji/.rbenv/versions/3.2.3/bin/ruby\n  -n,            [--name=NAME]                                                 # Name of the app\n  -m,            [--template=TEMPLATE]                                         # Path to some application template (can be a filesystem path or URL)\n  -d,            [--database=DATABASE]                                         # Preconfigure for selected database\n                                                                               # Default: sqlite3\n                                                                               # Possible values: mysql, trilogy, postgresql, sqlite3\n  -G,            [--skip-git]                                                  # Skip git init, .gitignore and .gitattributes\n                 [--skip-docker]                                               # Skip Dockerfile, .dockerignore and bin/docker-entrypoint\n                 [--skip-keeps]                                                # Skip source control .keep files\n  -M,            [--skip-action-mailer]                                        # Skip Action Mailer files\n                 [--skip-action-mailbox]                                       # Skip Action Mailbox gem\n                 [--skip-action-text]                                          # Skip Action Text gem\n  -O,            [--skip-active-record]                                        # Skip Active Record files\n                 [--skip-active-job]                                           # Skip Active Job\n                 [--skip-active-storage]                                       # Skip Active Storage files\n  -C,            [--skip-action-cable]                                         # Skip Action Cable files\n  -A,            [--skip-asset-pipeline]                                       # Indicates when to generate skip asset pipeline\n  -a,            [--asset-pipeline=ASSET_PIPELINE]                             # Choose your asset pipeline\n                                                                               # Default: sprockets\n                                                                               # Possible values: none, sprockets, propshaft\n  -J, --skip-js, [--skip-javascript]                                           # Skip JavaScript files\n                 [--skip-hotwire]                                              # Skip Hotwire integration\n                 [--skip-jbuilder]                                             # Skip jbuilder gem\n  -T,            [--skip-test]                                                 # Skip test files\n                 [--skip-system-test]                                          # Skip system test files\n                 [--skip-bootsnap]                                             # Skip bootsnap gem\n                 [--skip-dev-gems]                                             # Skip development gems (e.g., web-console)\n                 [--skip-rubocop]                                              # Skip RuboCop setup\n                 [--skip-brakeman]                                             # Skip brakeman setup\n                 [--skip-ci]                                                   # Skip GitHub CI files\n                 [--dev], [--no-dev], [--skip-dev]                             # Set up the application with Gemfile pointing to your Rails checkout\n                 [--devcontainer], [--no-devcontainer], [--skip-devcontainer]  # Generate devcontainer files\n                                                                               # Default: false\n                 [--edge], [--no-edge], [--skip-edge]                          # Set up the application with a Gemfile pointing to the 7-2-stable branch on the Rails repository\n  --master,      [--main], [--no-main], [--skip-main]                          # Set up the application with Gemfile pointing to Rails repository main branch\n                 [--rc=RC]                                                     # Path to file containing extra configuration options for rails command\n                 [--no-rc]                                                     # Skip loading of extra configuration options from .railsrc file\n                 [--api], [--no-api], [--skip-api]                             # Preconfigure smaller stack for API only apps\n                                                                               # Default: false\n                 [--minimal], [--no-minimal], [--skip-minimal]                 # Preconfigure a minimal rails app\n  -j, --js,      [--javascript=JAVASCRIPT]                                     # Choose JavaScript approach\n                                                                               # Default: importmap\n                                                                               # Possible values: importmap, bun, webpack, esbuild, rollup\n  -c,            [--css=CSS]                                                   # Choose CSS processor. Check https://github.com/rails/cssbundling-rails for more options\n                                                                               # Possible values: tailwind, bootstrap, bulma, postcss, sass\n  -B,            [--skip-bundle]                                               # Don't run bundle install\n                 [--skip-decrypted-diffs]                                      # Don't configure git to show decrypted diffs of encrypted credentials\n\nRuntime options:\n  -f, [--force]                                      # Overwrite files that already exist\n  -p, [--pretend], [--no-pretend], [--skip-pretend]  # Run but do not make any changes\n  -q, [--quiet], [--no-quiet], [--skip-quiet]        # Suppress status output\n  -s, [--skip], [--no-skip], [--skip-skip]           # Skip files that already exist\n\nRails options:\n  -h, [--help], [--no-help], [--skip-help]           # Show this help message and quit\n  -v, [--version], [--no-version], [--skip-version]  # Show Rails version number and quit\n\nDescription:\n    The `rails new` command creates a new Rails application with a default\n    directory structure and configuration at the path you specify.\n\n    You can specify extra command-line arguments to be used every time\n    `rails new` runs in the .railsrc configuration file in your home directory,\n    or in $XDG_CONFIG_HOME/rails/railsrc if XDG_CONFIG_HOME is set.\n\n    Note that the arguments specified in the .railsrc file don't affect the\n    default values shown above in this help message.\n\n    You can specify which version to use when creating a new rails application \n    using `rails _<version>_ new`.\n\nExamples:\n    `rails new ~/Code/Ruby/weblog`\n\n    This generates a new Rails app in ~/Code/Ruby/weblog.\n\n    `rails _<version>_ new weblog`\n\n    This generates a new Rails app with the provided version in ./weblog.\n\n    `rails new weblog --api`\n\n    This generates a new Rails app in API mode in ./weblog.\n\n    `rails new weblog --skip-action-mailer`\n\n    This generates a new Rails app without Action Mailer in ./weblog.\n    Any part of Rails can be skipped during app generation."
+    protocol = 'http'
+    tls_skip_verify = false
+
+    [http_service.checks.headers]
+      X-Forwarded-Proto = 'https'
+
 [[vm]]
   memory = '1gb'
   cpu_kind = 'shared'
   cpus = 1
+
+[[services]]
+  internal_port = 3000
+  protocol = "tcp"
+
+  [[services.ports]]
+    handlers = ["http"]
+    port = 80
+
+  [[services.ports]]
+    handlers = ["tls", "http"]
+    port = 443
+
+  [services.concurrency]
+    hard_limit = 25
+    soft_limit = 20
+    type = "connections"
+
+  [[services.checks]]
+    interval = "10s"
+    timeout = "2s"
+    grace_period = "5s"
+    method = "get"
+    path = "/"   # ←ここが空や不正だとエラー
+    protocol = "http"
+    tls_skip_verify = false

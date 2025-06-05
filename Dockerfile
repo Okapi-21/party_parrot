@@ -20,6 +20,8 @@ RUN apt-get update -qq && \
     nodejs \
     yarn \
     libpq-dev \
+    libjemalloc2 \
+    postgresql-client \
     # ...他のパッケージ...
     && rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
