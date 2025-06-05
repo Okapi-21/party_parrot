@@ -5,8 +5,6 @@ document.addEventListener("DOMContentLoaded", function () {
   if (container && container.dataset.gifs) {
     gifs = JSON.parse(container.dataset.gifs);
   }
-  console.log(gifs); // ← ここを追加
-
   const loadingGif = document.getElementById("loading-gif");
   if (loadingGif && gifs.length > 0) {
     const randomGif = gifs[Math.floor(Math.random() * gifs.length)];
