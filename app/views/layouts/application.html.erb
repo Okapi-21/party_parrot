@@ -15,6 +15,14 @@
     <link rel="apple-touch-icon" href="/icon.png">
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
+
+    <meta property="og:title" content="PartyParrot診断" />
+    <meta property="og:description" content="あなたにぴったりのパロットを診断！" />
+    <meta property="og:url" content="<%= request.original_url %>" />
+    <meta property="og:type" content="website" />
+    <% if @image.present? %>
+      <meta property="og:image" content="<%= image_url(@image) %>" />
+    <% end %>
   </head>
 
   <body>
