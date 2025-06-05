@@ -8,7 +8,7 @@
 /.bundle
 
 # Ignore all environment files (except templates).
-/.env*
+/env*
 !/.env*.erb
 
 # Ignore all logfiles and tempfiles.
@@ -28,8 +28,6 @@
 /tmp/storage/*
 !/tmp/storage/
 !/tmp/storage/.keep
-
-/public/assets
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
