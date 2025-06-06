@@ -11,8 +11,9 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "diagnoses#index"
+  
 
-  post "diagnoses/result", to: "diagnoses#result", as: :diagnosis_result
-
-  resources :diagnoses, only: %i[index new]
+  resources :diagnoses, only: %i[index new create]
+  
+  get 'diagnoses/result/:id', to: "diagnoses#result", as: :diagnosis_result
 end
