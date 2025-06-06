@@ -8,8 +8,12 @@
     </div>
     <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
       <div>
-        <% tweet_text = "#{@headline}\n#{image_url(@image)}\n#PartyParrot診断" %>
-        <%= link_to "Xでシェアする", "https://twitter.com/intent/tweet?text=#{ERB::Util.url_encode(tweet_text)}", target: "_blank", rel: "noopener", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded block text-center" %>
+        <% tweet_text = "#{@headline}\n#PartyParrot診断" %>
+        <% tweet_url = request.original_url %>
+        <%= link_to "Xでシェアする",
+              "https://twitter.com/intent/tweet?text=#{ERB::Util.url_encode(tweet_text)}&url=#{ERB::Util.url_encode(tweet_url)}",
+              target: "_blank", rel: "noopener",
+              class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded block text-center" %>
       </div>
       <div>
         <%= link_to "もう一度診断する", new_diagnosis_path, class: "bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded block text-center" %>

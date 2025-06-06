@@ -10,7 +10,7 @@
     <span class="text-base font-normal text-gray-600">あなたのパートナーである<br>party_parrotを伝えましょう。</span>
   </h2>
   <div class="bg-white rounded-lg shadow-md p-8 w-full max-w-md">
-    <%= form_with url: diagnosis_result_path, method: :post, local: true do |f| %>
+    <%= form_with url: diagnoses_path, method: :post, local: true do |f| %>
       <div class="mb-6">
         <%= f.label :birthday, "誕生日", class: "block mb-2 font-semibold text-gray-700" %>
         <div class="flex gap-2">
