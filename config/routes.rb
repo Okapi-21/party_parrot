@@ -11,9 +11,9 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "diagnoses#index"
-  
+
 
   resources :diagnoses, only: %i[index new create]
-  
-  get 'diagnoses/result/:id', to: "diagnoses#result", as: :diagnosis_result
+
+  get "diagnoses/result/:id", to: "diagnoses#result", as: :diagnosis_result
 end
