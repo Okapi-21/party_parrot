@@ -19,9 +19,8 @@
     <meta property="og:description" content="あなたにぴったりのパロットを診断！" />
     <meta property="og:url" content="<%= request.original_url %>" />
     <meta property="og:type" content="website" />
-    <% if @image.present? %>
-      <meta property="og:image" content="<%= image_url(@image) %>" />
-    <% end %>
+    <% og_image = @image.present? ? image_url(@image) : "#{request.base_url}/parrot_01.png" %>
+    <meta property="og:image" content="<%= og_image %>" />
   </head>
 
   <body>
