@@ -22,9 +22,9 @@ class DiagnosesController < ApplicationController
         @type = sum % 12
 
         if year == "1" && month == "1" && day =="1"
-            @headline = "あなたは始祖のパロットタイプ!!"
-            @description = "あなたのパートナーは「始祖のパロット」のようです。\nパロット界の創造主であり、絶対的な存在として君臨しているパロット。世界を8610日で創り、生命を爆誕させた。王家の血を継ぐパロットは始祖のパロットの遠い子孫であり、現在は地上に30人しかいない。"
-            @image = "party_parrots/parrot_13.png"
+            headline = "あなたは始祖のパロットタイプ!!"
+            description = "あなたのパートナーは「始祖のパロット」のようです。\nパロット界の創造主であり、絶対的な存在として君臨しているパロット。世界を8610日で創り、生命を爆誕させた。王家の血を継ぐパロットは始祖のパロットの遠い子孫であり、現在は地上に30人しかいない。"
+            image = "party_parrots/parrot_13.png"
             render :result and return
         end
 
